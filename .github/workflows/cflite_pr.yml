@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Build Fuzzers
       id: build
-      uses: google/clusterfuzzlite/actions/build_fuzzers@use-git-filestore-in-build
+      uses: google/oss-fuzz/infra/cifuzz/external-actions/build_fuzzers@cfl-fix-cov
       with:
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/jonathanmetzman/clusterfuzzlite-example-storage.git
         storage-repo-branch-coverage: gh-pages
