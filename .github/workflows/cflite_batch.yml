@@ -1,25 +1,24 @@
-name: ClusterFuzzLite Coverage
+name: ClusterFuzzLite batch fuzzing
 on:
   push:
     branches:
       - main  # Use your actual default branch here.
 permissions: read-all
 jobs:
-  Coverage:
+  BatchFuzzing:
     runs-on: ubuntu-latest
     steps:
     - name: Build Fuzzers
       id: build
       uses: google/clusterfuzzlite/actions/build_fuzzers@v1
-      with:
-        sanitizer: coverage
     - name: Run Fuzzers
       id: run
       uses: google/clusterfuzzlite/actions/run_fuzzers@v1
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        fuzz-seconds: 600
-        mode: 'coverage'
+        fuzz-seconds: 120
+        mode: 'batch'
+        # Git storage repo options.
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/jonathanmetzman/clusterfuzzlite-example-storage.git
-        storage-repo-branch: main
-        storage-repo-branch-coverage: gh-pages
+        storage-repo-branch: main   # Optional. Defaults to "main"
+        storage-repo-branch-coverage: gh-pages  # Optional. Defaults to "gh-pages".
