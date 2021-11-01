@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Build Fuzzers
       id: build
-      uses: google/clusterfuzzlite/actions/build_fuzzers@v1
+      uses: google/clusterfuzzlite/actions/build_fuzzers@use-git-filestore-in-build
       with:
         storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/jonathanmetzman/clusterfuzzlite-example-storage.git
         storage-repo-branch-coverage: gh-pages
@@ -21,5 +21,3 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         fuzz-seconds: 120
         mode: 'code-change'
-        storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/jonathanmetzman/clusterfuzzlite-example-storage.git
-        storage-repo-branch-coverage: gh-pages
