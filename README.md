@@ -25,5 +25,3 @@ Imagine that these files reside in your project's repository:
 
 ## Example bug
 Example bug report filed automatically: https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=1562
-
-
