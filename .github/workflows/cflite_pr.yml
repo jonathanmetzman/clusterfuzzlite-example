@@ -11,9 +11,6 @@ jobs:
     - name: Build Fuzzers
       id: build
       uses: google/clusterfuzzlite/actions/build_fuzzers@v1
-      with:
-        storage-repo: https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/jonathanmetzman/clusterfuzzlite-example-storage.git
-        storage-repo-branch-coverage: gh-pages
     - name: Run Fuzzers
       id: run
       uses: google/clusterfuzzlite/actions/run_fuzzers@v1
